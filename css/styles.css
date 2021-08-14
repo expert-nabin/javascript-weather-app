@@ -7,7 +7,7 @@
 
 html,
 body {
-  background-image: radial-gradient(circle 993px at 0.5% 50.5%, rgba(137, 171, 245, 0.37) 0%, #f5f7fc 100.2%);
+  background-image: linear-gradient(to right, #8EC5FC, #E0C3FC);
   font-family: "Varela Round", sans-serif;
   height: 100vh;
   width: 100vw;
@@ -29,7 +29,7 @@ body {
   box-shadow: 0 8px 32px 0 rgba(83, 89, 179, 0.37);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  border-radius: 30px;
+  border-radius: 8px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   margin: 0 20px;
@@ -41,6 +41,7 @@ body {
 
 .weatherWrapper {
   padding: 30px;
+  color: #FF2525;
 }
 
 .locationTitle {
@@ -57,7 +58,8 @@ body {
   background-color: #f7f7f7;
   padding: 30px;
   text-align: right;
-  border-radius: 0 30px 30px 0;
+  border-radius: 0 8px 8px 0;
+  color: #9FACE6;
 }
 
 .titleAndSearch {
@@ -70,13 +72,13 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-  border-radius: 20px;
+  border-radius: 8px;
   margin-bottom: 20px;
 }
 
 .statsCard {
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
+  border-radius: 8px;
   padding: 20px;
 }
 
@@ -97,7 +99,7 @@ body {
   color: #303030;
   font-size: 20px;
   text-align: right;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: "Varela Round", sans-serif;
   font-size: 18px;
 }
