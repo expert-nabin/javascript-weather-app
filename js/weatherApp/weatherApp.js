@@ -1,6 +1,7 @@
 import API from './api.js';
 import NoData from './nodata.js';
 import Loading from './loading.js';
+import WeatherComponent from './weatherComponent.js';
 
 class WeatherApp {
     rootElement;
@@ -10,8 +11,7 @@ class WeatherApp {
             NoData.render(this.rootElement);
         }
         else {
-            console.log({data});
-            // this.rootElement
+            WeatherComponent.render(this.rootElement, data, systemUsed);
         }
         
     }
@@ -26,7 +26,7 @@ class WeatherApp {
             API.getWeatherData(defaultCity)
                 .then(data => {
                     Loading.remove(this.rootElement);
-                    this.render(null, systemUsed);
+                    this.render(data, systemUsed);
                 });
 
         }
