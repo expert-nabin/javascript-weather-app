@@ -1,5 +1,6 @@
 import API from './api.js';
 import NoData from './nodata.js';
+import Loading from './loading.js';
 
 class WeatherApp {
     rootElement;
@@ -21,8 +22,10 @@ class WeatherApp {
 
             const defaultCity = 'Sydney';
             const systemUsed = 'metric';
+            Loading.render(this.rootElement);
             API.getWeatherData(defaultCity)
                 .then(data => {
+                    Loading.remove(this.rootElement);
                     this.render(null, systemUsed);
                 });
 
