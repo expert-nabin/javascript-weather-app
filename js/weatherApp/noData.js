@@ -18,10 +18,3 @@ class NoData {
     }
 }
 export default NoData;
-
-    // <div class="errScr hide">
-    //     <div>
-    //         <h1 style="margin-bottom: 30px;">City not found, try again!</h1>
-    //         <input type="text" class="searchInput" placeholder="Search a city..." />
-    //     </div>
-    // </div>

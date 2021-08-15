@@ -20,8 +20,8 @@ class WeatherApp {
             this.rootElement = document.querySelector(selector);
             if(!this.rootElement) throw `Could not find the element with ${selector}`;
 
-            const defaultCity = 'Sydney';
-            const systemUsed = 'metric';
+            const defaultCity = 'Tokyo';
+            const systemUsed = 'imperial';
             Loading.render(this.rootElement);
             API.getWeatherData(defaultCity)
                 .then(data => {
