@@ -1,4 +1,5 @@
 import DomUtil from './domUtil.js';
+import WeatherWrapper from './weatherWrapper.js';
 
 class WeatherComponent{
     static render(parentElement, data, systemUsed) {
