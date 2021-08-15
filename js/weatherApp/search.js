@@ -1,15 +1,21 @@
 import DomUtil from './domUtil.js';
 import API from './api.js';
+import WeatherApp from './weatherApp.js';
+import constants from './constants.js';
+import Loading from './loading.js';
 
 class Search {
     element;
+    parentElement;
 
     static handleSearchInput(event) {
         if(event.key === 'Enter') {
             const inputValue = event.target.value.trim();
             if(inputValue) {
+                Loading.render(this.parentElement);
                 API.getWeatherData(inputValue).then(data => {
-                    console.log(data);
+                    this.element.value = '';
+                    WeatherApp.render(data, constants.DEFAULT_UNIT);
                 });
             }
             else {
@@ -24,6 +30,7 @@ class Search {
     }
 
     static render(parentElement) {
+        this.parentElement = parentElement;
         this.element = DomUtil.createElement('input', [
             {key: 'class', value: 'searchInput'},
             {key: 'placeholder', value: 'Search a city...'}
