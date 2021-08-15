@@ -1,5 +1,6 @@
 import DomUtil from './domUtil.js';
 import WeatherWrapper from './weatherWrapper.js';
+import StatsWrapper from './statsWrapper.js';
 
 class WeatherComponent{
     static render(parentElement, data, systemUsed) {
@@ -7,6 +8,7 @@ class WeatherComponent{
         parentElement.appendChild(element);
 
         WeatherWrapper.render(element, data, systemUsed);
+        StatsWrapper.render(element, data, systemUsed);
     }
 }
 export default WeatherComponent;
