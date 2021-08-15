@@ -1,6 +1,7 @@
 import Converter from './converter.js';
 import DomUtil from './domUtil.js';
 import Utility from './utility.js';
+import Search from './search.js';
 
 class TitleAndSearch {
     static render(parentElement, data, systemUsed) {
@@ -39,6 +40,8 @@ class TitleAndSearch {
         heading.innerText = headingData;
         element.appendChild(heading);
         
+
+        Search.render(element);
     }
 }
 export default TitleAndSearch;
