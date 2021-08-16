@@ -13,24 +13,32 @@ class WeatherApp {
             NoData.render(this.rootElement);
         }
         else {
+            localStorage.setItem('weatherData', JSON.stringify(data));
             WeatherComponent.render(this.rootElement, data, systemUsed);
-        }
-        
+        } 
     }
+
     static init(selector) {
         try {
             this.rootElement = document.querySelector(selector);
             if(!this.rootElement) throw `Could not find the element with ${selector}`;
 
-            const defaultCity = constants.DEFAULT_CITY;
             const systemUsed = constants.DEFAULT_UNIT;
-            Loading.render(this.rootElement);
-            API.getWeatherData(defaultCity)
-                .then(data => {
-                    Loading.remove(this.rootElement);
-                    this.render(data, systemUsed);
-                });
 
+            const weatherData = localStorage.getItem('weatherData');
+            if(weatherData) {
+                this.render(JSON.parse(weatherData), systemUsed);
+            }
+            else {
+                const defaultCity = constants.DEFAULT_CITY;
+            
+                Loading.render(this.rootElement);
+                API.getWeatherData(defaultCity)
+                    .then(data => {
+                        Loading.remove(this.rootElement);
+                        this.render(data, systemUsed);
+                    });
+            }
         }
         catch (error){
             console.log(error);

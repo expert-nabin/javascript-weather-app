@@ -15,6 +15,7 @@ class Search {
                 Loading.render(this.parentElement);
                 API.getWeatherData(inputValue).then(data => {
                     this.element.value = '';
+                    
                     WeatherApp.render(data, constants.DEFAULT_UNIT);
                 });
             }
